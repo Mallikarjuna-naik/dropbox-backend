@@ -5,10 +5,9 @@ import { validateFileType } from '../middleware/fileTypeValidator';
 
 const router = express.Router();
 
-// Multer Configuration
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Define where files are stored
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
     const uniqueName = `${Date.now()}-${file.originalname}`;
@@ -26,9 +25,9 @@ router.post(
   uploadFile // Controller function
 );
 
-router.get('/getfiles', getFileList); // List all files
+router.get('/getfiles', getFileList); // Get List of all files
 router.get('/download/:id', downloadFile); // Download a file
-router.get('/getFileById/:id', getFileById); 
+router.get('/getFileById/:id', getFileById); // Get a file by Id
 router.get('/viewFile/:id', viewFile); // view a file
 
 export default router;
