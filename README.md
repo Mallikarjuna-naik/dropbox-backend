@@ -135,9 +135,9 @@ dropbox-clone-backend
 │   │   └── fileRoutes.ts
 │   ├── services
 │   │   └── dbService.ts
-│   ├── .env    # Environment variables
 │   ├── app.ts  # Express app setup
 │   └── server.ts  # Server entry point
+├── .env    # Environment variables
 ├── tsconfig.json  # TypeScript config
 └── package.json  # Project metadata
 ```
