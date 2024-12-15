@@ -81,13 +81,43 @@ This is the backend service for the Simplified Dropbox project. It provides REST
 - Node.js and npm installed.
 - MongoDB instance running.
 
-### Steps
+### Install Dependencies
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Mallikarjuna-naik/dropbox-backend.git
+   git clone https://github.com/your-username/dropbox-backend.git
    cd dropbox-backend
+   ```
+
+2. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+
+### Create an `.env` File
+1. Create a `.env` file in the root directory of your project and add the following environment variables:
+   ```env
+   PORT=3000
+   MONGO_URI=mongodb://localhost:27017/dropbox
+   UPLOAD_DIR=uploads
+   ```
+
+2. Update the `MONGO_URI` if you are using a hosted MongoDB service such as MongoDB Atlas.
+
+### Start the Server
+1. Start the backend server:
+   ```bash
+   npm start
+   ```
+
+2. The backend service will be available at:
+   ```
+   http://localhost:3000
+   ```
+
+---
 
 ### Directory Structure
+```
 dropbox-clone-backend
 │
 ├── uploads  # Folder for storing uploaded files (create this manually or programmatically)
@@ -110,3 +140,5 @@ dropbox-clone-backend
 │   └── server.ts  # Server entry point
 ├── tsconfig.json  # TypeScript config
 └── package.json  # Project metadata
+```
+
