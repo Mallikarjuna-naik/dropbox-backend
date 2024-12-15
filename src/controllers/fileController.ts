@@ -24,9 +24,9 @@ export const uploadFile = async (req: Request, res: Response, next: NextFunction
 
     res.status(200).json({ message: 'File uploaded successfully', file: newFile });
   } catch (error:any) {
-    // next(error);
-    console.error('Error uploading file:', error.message);
-    res.status(500).json({ message: 'Error uploading file' });
+    next(error);
+    // console.error('Error uploading file:', error.message);
+    // res.status(500).json({ message: 'Error uploading file' });
   }
 };
 
@@ -53,11 +53,6 @@ export const downloadFile = async (req: Request, res: Response, next: NextFuncti
 
     const filePath = path.join(__dirname, '../../uploads', file.path);
     res.download(filePath, file.name);
-    // res.set({
-    //     'Content-Type': file.mimetype,
-    //     'Content-Disposition': `attachment; filename="${file.name}"`,
-    //   });
-    // res.send(file.content);
   } catch (error) {
     next(error);
   }
@@ -85,8 +80,6 @@ export const getFileById = async (req: Request, res: Response, next: NextFunctio
         });
     } catch (error) {
       next(error);
-    //   console.error('Error in getFileById:', error.message);
-    //   res.status(500).json({ message: 'Server error. Please try again.' });
     }
   };
 
