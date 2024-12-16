@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { File } from '../models/fileModel';
 import path from 'path';
-
+import fs from 'fs'; // File system module
 // Upload File Controller
 export const uploadFile = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
@@ -108,5 +108,29 @@ export const getFileById = async (req: Request, res: Response, next: NextFunctio
     }
   };
   
-
+  export const deleteFile = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    const fileId = req.params.id;
+      const filePath = `uploads/${fileId}`;
+    
+      console.log("filepath: ",fileId)
+      // Check if the file exists and then delete
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          return res.status(500).json({ message: 'Failed to delete the file.', error: err });
+        }
+    
+        File.deleteOne({ path: fileId })
+          .then((result) => {
+            if (result.deletedCount === 0) {
+              return res.status(404).json({ message: 'File not found in database' });
+            }
+            res.status(200).json({ message: 'File deleted from database successfully.' });
+          })
+          .catch((err) => {
+            res.status(500).json({ message: 'Error deleting file from database', error: err });
+          });
+        
+            // res.status(200).json({ message: 'File deleted successfully.' });
+          });
+  };
 
