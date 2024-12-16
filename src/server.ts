@@ -1,4 +1,3 @@
-// src/server.ts
 import app from './app';
 import { connectToDatabase } from './services/dbService';
 import fs from 'fs';
