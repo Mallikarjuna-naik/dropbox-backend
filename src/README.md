@@ -74,6 +74,16 @@ This is the backend service for the Simplified Dropbox project. It provides REST
        "updatedAt": "2024-12-15T10:00:00Z"
      }
      ```
+### 4. **Get File Details**
+   - **Endpoint**: `/delete/:id`
+   - **Method**: `delete`
+   - **Description**: Fetches metadata of a specific file by its path and deletes it.
+   - **Response**:
+     ```json
+     {
+       "message": "File deleted from database successfully."
+     }
+     ```
 
 ## Installation
 
