@@ -7,6 +7,7 @@ This is the backend service for the Simplified Dropbox project. It provides REST
 - Get a list of all uploaded files.
 - Download files by their unique ID.
 - View file details (metadata such as name, type, size, etc.).
+- delete file by path
 
 ## Technologies Used
 - **Framework**: Node.js with Express.js
